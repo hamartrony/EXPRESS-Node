@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-  ukenzie:
-    container_name: ukenzie_projeto
-    image: ukenzie
+  servidor-foda:
+    container_name: server
+    image: server-node
     build: .
     ports:
       - 3000:3000
@@ -12,15 +12,15 @@ services:
     environment:
       - DB_USERNAME=postgres
       - DB_HOST=db
-      - DB=defaultdb
+      - DB=sqlanches
       - DB_PASSWORD=1234
       - DB_PORT=5432
   db:
     container_name: db
     image: postgres:12
     ports:
-      - 5432:5432
+      - 5439:5432
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=defaultdb
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=sqlanches

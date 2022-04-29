@@ -15,7 +15,7 @@ export default class UserController {
     async index(req, res){
         try{
             const user = await listUser()
-            return res.status(200).json(user)
+            return res.status(200).json(user,)
         }catch (err) {
             return res.status(400)
         }
