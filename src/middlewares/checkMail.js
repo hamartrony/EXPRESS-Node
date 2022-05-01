@@ -4,11 +4,10 @@ const checkEmail = async (req, res, next) => {
   const { email } = req.body;
 
   try {
-    const checkBase = await database.query("SELECT * FROM users WHERE email = $1", [
-      email,
-    ]);
+    const checkEmailBase = await database.query("SELECT * FROM users WHERE email = $1", 
+    [email]);
 
-    if (checkBase.rows.length > 0) {
+    if (checkEmailBase.rows.length) {
       return res.status(401).json({ message: "Email is already in use" });
     }
 
