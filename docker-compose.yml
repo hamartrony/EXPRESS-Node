@@ -3,7 +3,7 @@ version: "3.9"
 services:
   servidor-foda:
     container_name: server
-    image: server-node
+    image: kenzie_server
     build: .
     ports:
       - 3000:3000
@@ -12,8 +12,8 @@ services:
     environment:
       - DB_USERNAME=postgres
       - DB_HOST=db
-      - DB=sqlanches
-      - DB_PASSWORD=1234
+      - DB=servernode
+      - DB_PASSWORD=123456
       - DB_PORT=5432
   db:
     container_name: db
@@ -22,5 +22,5 @@ services:
       - 5439:5432
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=1234
-      - POSTGRES_DB=sqlanches
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=servernode
