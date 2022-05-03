@@ -1,0 +1,12 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS courses(
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    title VARCHAR(100) NOT NULL,
+    price DECIMAL(7,2) NOT NULL,
+    duration INTEGER NOT NULL,
+    creator UUID NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    FOREIGN KEY (creator) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+)
